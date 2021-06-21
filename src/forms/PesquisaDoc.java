@@ -28,19 +28,21 @@ public class PesquisaDoc extends javax.swing.JFrame {
      * Creates new form PesquisaDoc
      * 
      */
-    
+    private String titulo;
   
-    public PesquisaDoc() {
+    public PesquisaDoc(String titulo) {
         initComponents();
+        this.titulo=titulo;
         popularTabela();
+        
         
     }
     
     
      private void  popularTabela()
     {
-        classes.PesquisaDocs p = new PesquisaDocs("","","","","","","","","","","","","","","","","","");
-       ArrayList<classes.PesquisaDocs> pList = p.acordotList();
+         classes.AddResumoDocs p = new AddResumoDocs("","","","","","","","","","","","","","","","","");
+       ArrayList<classes.AddResumoDocs> pList = p.acordotList();
       //int ia=0;
        
        String [] colNames ={"Id_doc","Titulo","Ref_Local","Descricao","Quant","valor","Localizacao","Fonte","Data_Entrada","Status",
@@ -48,24 +50,33 @@ public class PesquisaDoc extends javax.swing.JFrame {
        Object [][] rows=new Object[pList.size()][colNames.length];
        for(int j=0, i=0;i<pList.size();i++)
        {
-           rows[i][0]=pList.get(i).getId_doc();
-           rows[i][1]=pList.get(i).getTitulo_doc();
-           rows[i][2]=pList.get(i).getRef_loca();
-           rows[i][3]=pList.get(i).getDescricao();
-           rows[i][4]=pList.get(i).getQuant();
-           rows[i][5]=pList.get(i).getValor();
-           rows[i][6]=pList.get(i).getLocalizacao();
-           rows[i][7]=pList.get(i).getFonte();
-           rows[i][8]=pList.get(i).getData_entrada();
-           rows[i][9]=pList.get(i).getStatus();
-           rows[i][10]=pList.get(i).getGrupo();
-           rows[i][11]=pList.get(i).getFormato();
-           rows[i][12]=pList.get(i).getEdicao_data();
-           rows[i][13]=pList.get(i).getEdicao_revisao();
-           rows[i][14]=pList.get(i).getArmario();
-           rows[i][15]=pList.get(i).getPrateleira();   
-           System.out.println(pList.get(i).getFonte());
+           if(titulo==pList.get(i).getTitulo_doc())
+           {
+               rows[i][0]=pList.get(i).getId_doc();
+               rows[i][1]=pList.get(i).getTitulo_doc();
+               rows[i][2]=pList.get(i).getRef_loca();
+               rows[i][3]=pList.get(i).getDescricao();
+               rows[i][4]=pList.get(i).getQuant();
+               rows[i][5]=pList.get(i).getValor();
+               rows[i][6]=pList.get(i).getLocalizacao();
+               rows[i][7]=pList.get(i).getFonte();
+               rows[i][8]=pList.get(i).getData_entrada();
+               rows[i][9]=pList.get(i).getStatus();
+               rows[i][10]=pList.get(i).getGrupo();
+               rows[i][11]=pList.get(i).getFormato();
+               rows[i][12]=pList.get(i).getEdicao_data();
+               rows[i][13]=pList.get(i).getEdicao_revisao();
+               rows[i][14]=pList.get(i).getArmario();
+               rows[i][15]=pList.get(i).getPrateleira();   
+           
+           }
+           else
+           {
+               
+           }
+           
        }
+       System.out.println(titulo);
        DefaultTableModel model =  new DefaultTableModel(rows,colNames);
        jTable1.setModel(model);       
     }
@@ -156,7 +167,7 @@ public class PesquisaDoc extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PesquisaDoc().setVisible(true);
+                new PesquisaDoc("").setVisible(true);
             }
         });
     }

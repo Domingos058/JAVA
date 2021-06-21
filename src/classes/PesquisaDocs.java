@@ -156,7 +156,7 @@ public class PesquisaDocs {
                 rs.getString("prateleira"),rs.getString(""));
                 aList.add(p);
             }
-            System.out.println(titulo);
+            System.out.println("o titulo "+titulo);
            
         } catch (SQLException ex) {
             Logger.getLogger(Doc.class.getName()).log(Level.SEVERE, null, ex);

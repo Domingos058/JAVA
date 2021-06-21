@@ -153,8 +153,8 @@ public class ResumoDocs extends javax.swing.JFrame {
         else
         {
             
-            classes.PesquisaDocs addDocs = new PesquisaDocs("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",find);
-            PesquisaDoc p = new PesquisaDoc();
+            classes.PesquisaDocs addDocs = new PesquisaDocs("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "","");
+            PesquisaDoc p = new PesquisaDoc(find);
             p.setVisible(true);
         }
         
